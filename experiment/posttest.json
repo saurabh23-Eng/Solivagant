@@ -1,39 +1,37 @@
 {
-  "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "In DPSK, what does a 180° phase change represent?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
-      },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
-      },
-      "correctAnswer": "a",
-      "difficulty": "beginner"
-    },
-    {
-      "question": "This is a Sample Question 2?",
-      "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
-      },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Bit 0",
+        "b": "Noise",
+        "c": "Bit 1",
+        "d": "Carrier change"
       },
       "correctAnswer": "c",
-      "difficulty": "beginner"
+      "explanation": "In DPSK, a 180° phase shift is used to represent a binary 1, while no phase change represents a binary 0."
+    },
+    {
+      "question": "What is the key difference between BPSK and DPSK?",
+      "answers": {
+        "a": "Amplitude modulation",
+        "b": "Use of frequency",
+        "c": "Coherent vs. non-coherent detection",
+        "d": "Use of filters"
+      },
+      "correctAnswer": "c",
+      "explanation": "BPSK requires a coherent reference for demodulation, whereas DPSK uses non-coherent detection by comparing phase differences between bits."
+    },
+    {
+      "question": "What does DPSK compare during demodulation?",
+      "answers": {
+        "a": "Amplitude values",
+        "b": "Current and previous phase values",
+        "c": "Signal frequency",
+        "d": "Carrier power"
+      },
+      "correctAnswer": "b",
+      "explanation": "DPSK demodulation is based on comparing the phase of the current symbol with the previous symbol to detect a change in bit value."
     }
   ]
 }
