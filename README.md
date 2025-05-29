@@ -6,7 +6,7 @@
 <b>Discipline | <b>Electronics and Communication(BEC 451)
 :--|:--|
 <b> Lab | <b>Communication lab
-<b> Experiment|     <b> 01.To differential phase shift keying technique using MATLAB software 
+<b> Experiment|     <b> To differential phase shift keying technique using MATLAB software 
 
 ### About the Experiment 
 
