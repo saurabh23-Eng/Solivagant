@@ -1,39 +1,37 @@
 {
-  "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "What is the full form of DPSK?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
-      },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
-      },
-      "correctAnswer": "a",
-      "difficulty": "beginner"
-    },
-    {
-      "question": "This is a Sample Question 2?",
-      "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
-      },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Differentiated Phase Shift Keying",
+        "b": "Differential Pulse Shift Keying",
+        "c": "Differential Phase Shift Keying",
+        "d": "Direct Phase Shift Keying"
       },
       "correctAnswer": "c",
-      "difficulty": "beginner"
+      "explanation": "DPSK stands for Differential Phase Shift Keying, which encodes data based on the difference in phase between consecutive bits."
+    },
+    {
+      "question": "Which type of modulation encodes data as changes in phase?",
+      "answers": {
+        "a": "ASK",
+        "b": "FSK",
+        "c": "PSK",
+        "d": "PWM"
+      },
+      "correctAnswer": "c",
+      "explanation": "PSK, or Phase Shift Keying, encodes digital data by changing the phase of the carrier signal. DPSK is a form of PSK."
+    },
+    {
+      "question": "Which technique avoids the need for a coherent reference at the receiver?",
+      "answers": {
+        "a": "BPSK",
+        "b": "DPSK",
+        "c": "FSK",
+        "d": "QAM"
+      },
+      "correctAnswer": "b",
+      "explanation": "DPSK does not require a coherent carrier at the receiver since information is encoded in the difference between phases of successive symbols."
     }
   ]
 }
