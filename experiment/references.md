@@ -1,7 +1,19 @@
 References:
 
-Simon Haykin, Digital Communication Systems, 5th Edition, Wiley, 2009.
-— Comprehensive textbook covering digital modulation techniques including DPSK.### Link your references in here
+1. "Digital Communications" by Simon Haykin
 
-Wikipedia contributors, “Differential phase-shift keying,” Wikipedia, The Free Encyclopedia, https://en.wikipedia.org/wiki/Differential_phase-shift_keying
-— General overview and theory behind DPSK modulation and demodulation.
+Covers modulation techniques including PSK and DPSK in-depth
+
+2. "Communication Systems" by Simon Haykin
+
+Includes theoretical foundations and practical examples of DPSK
+
+3. "Digital Communication" by John G. Proakis
+
+Excellent reference for simulation of digital modulation techniques in MATLAB.
+
+4. MathWorks Official Documentation – DPSK Modulation
+
+Function: dpskmod() and dpskdemod()
+
+Provides syntax, examples, and practical usage.
