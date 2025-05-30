@@ -1,37 +1,81 @@
 {
   "questions": [
     {
-      "question": "In DPSK, what does a 180° phase change represent?",
+      "question": "What is the main advantage of DPSK over PSK?",
       "answers": {
-        "a": "Bit 0",
-        "b": "Noise",
-        "c": "Bit 1",
-        "d": "Carrier change"
-      },
-      "correctAnswer": "c",
-      "explanation": "In DPSK, a 180° phase shift is used to represent a binary 1, while no phase change represents a binary 0."
-    },
-    {
-      "question": "What is the key difference between BPSK and DPSK?",
-      "answers": {
-        "a": "Amplitude modulation",
-        "b": "Use of frequency",
-        "c": "Coherent vs. non-coherent detection",
-        "d": "Use of filters"
-      },
-      "correctAnswer": "c",
-      "explanation": "BPSK requires a coherent reference for demodulation, whereas DPSK uses non-coherent detection by comparing phase differences between bits."
-    },
-    {
-      "question": "What does DPSK compare during demodulation?",
-      "answers": {
-        "a": "Amplitude values",
-        "b": "Current and previous phase values",
-        "c": "Signal frequency",
-        "d": "Carrier power"
+        "a": "Higher data rate",
+        "b": "Simpler receiver design (no need for coherent detection)",
+        "c": "Lower bandwidth requirement",
+        "d": "Better frequency stability"
       },
       "correctAnswer": "b",
-      "explanation": "DPSK demodulation is based on comparing the phase of the current symbol with the previous symbol to detect a change in bit value."
+      "explanation": "DPSK doesn't require a coherent reference signal at the receiver, making the receiver design simpler compared to PSK."
+    },
+    {
+      "question": "In DPSK, what does a 0° phase change represent?",
+      "answers": {
+        "a": "Bit 0",
+        "b": "Bit 1",
+        "c": "Noise",
+        "d": "Carrier reset"
+      },
+      "correctAnswer": "a",
+      "explanation": "In DPSK, no phase change (0°) represents binary 0, while a 180° phase change represents binary 1."
+    },
+    {
+      "question": "What is the primary disadvantage of DPSK compared to PSK?",
+      "answers": {
+        "a": "Higher power consumption",
+        "b": "More complex transmitter design",
+        "c": "Higher bit error rate in noisy conditions",
+        "d": "Limited to low frequencies"
+      },
+      "correctAnswer": "c",
+      "explanation": "DPSK has a higher BER than PSK because errors can propagate due to the differential encoding scheme."
+    },
+    {
+      "question": "Which block is essential in a DPSK transmitter but not in a PSK transmitter?",
+      "answers": {
+        "a": "Differential encoder",
+        "b": "Power amplifier",
+        "c": "Bandpass filter",
+        "d": "Oscillator"
+      },
+      "correctAnswer": "a",
+      "explanation": "DPSK requires a differential encoder to convert absolute bits to relative phase changes."
+    },
+    {
+      "question": "What is the typical method for DPSK demodulation?",
+      "answers": {
+        "a": "Envelope detection",
+        "b": "Delay-and-multiply circuit",
+        "c": "Frequency discrimination",
+        "d": "Phase-locked loop"
+      },
+      "correctAnswer": "b",
+      "explanation": "DPSK uses delay-and-multiply demodulation where the current symbol is compared with the previous one."
+    },
+    {
+      "question": "In MATLAB, which function would you use to implement DPSK modulation?",
+      "answers": {
+        "a": "dpskmod()",
+        "b": "pskmod() with differential encoding",
+        "c": "fskmod()",
+        "d": "Both a and b"
+      },
+      "correctAnswer": "d",
+      "explanation": "MATLAB has a dedicated dpskmod() function, but you can also use pskmod() with manual differential encoding."
+    },
+    {
+      "question": "Why is DPSK more suitable than PSK for fading channels?",
+      "answers": {
+        "a": "Because it uses higher power",
+        "b": "Because it's less sensitive to phase discontinuities",
+        "c": "Because it uses frequency hopping",
+        "d": "Because it requires less bandwidth"
+      },
+      "correctAnswer": "b",
+      "explanation": "DPSK performs better in fading channels as it's less sensitive to sudden phase changes that might occur during fading."
     }
   ]
 }
