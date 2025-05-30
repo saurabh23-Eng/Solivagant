@@ -1,79 +1,111 @@
-Theory: Differential Phase Shift Keying (DPSK)
+# 🧪 Differential Phase Shift Keying (DPSK) – Theory
 
-Differential Phase Shift Keying (DPSK) is a type of digital modulation technique where data is represented by changes in the phase of a carrier wave, relative to the previous bit, rather than the absolute phase.
+## 📖 Introduction
 
-In DPSK:
+Differential Phase Shift Keying (DPSK) is a digital modulation technique where the information is encoded in the **difference between the phases of consecutive symbols** rather than the absolute phase of the signal. It is a type of **non-coherent Phase Shift Keying (PSK)**, meaning that the receiver does not require a reference carrier signal to decode the information, which simplifies hardware design.
 
-A binary 1 is represented by a 180° phase shift from the previous bit.
+In conventional PSK, the receiver must know the exact reference phase of the carrier wave to detect the signal correctly. In contrast, DPSK eliminates the need for phase synchronization by making decisions based on the **phase difference** from one symbol to the next.
 
-A binary 0 is represented by no phase change from the previous bit.
+---
 
-This relative phase encoding eliminates the need for a coherent carrier reference at the receiver, simplifying the demodulation process.
+## 🧠 Principle of Operation
 
-DPSK is a variation of Phase Shift Keying (PSK) but is preferred in some systems because it allows non-coherent detection, which is less complex and more robust in noisy environments.
+In **binary DPSK (2-DPSK)**:
 
-The modulated DPSK signal can be mathematically expressed as:
+- A binary '1' is represented by a **180° phase shift** relative to the previous bit.
+- A binary '0' is represented by **no change** in phase from the previous bit.
 
-𝑠
-(
-𝑡
-)
-=
-𝐴
-cos
-⁡
-(
-2
-𝜋
-𝑓
-𝑐
-𝑡
-+
-𝜙
-(
-𝑡
-)
-)
-s(t)=Acos(2πf 
-c
-​
- t+ϕ(t))
-where:
+This means that each output symbol depends not only on the current input bit but also on the **previous phase state**, making it a form of differential encoding.
 
-𝐴
-A = amplitude,
+---
 
-𝑓
-𝑐
-f 
-c
-​
-  = carrier frequency,
+## 🔧 Modulation Process
 
-𝜙
-(
-𝑡
-)
-ϕ(t) = instantaneous phase determined by the differential encoding of bits.
+1. An initial phase (e.g., 0°) is assumed.
+2. For every input bit:
+   - If bit = 0 → keep the phase the same.
+   - If bit = 1 → invert the phase (add 180°).
+3. The phase-modulated signal is generated using:
+   ```
+   s(t) = A·cos(2πf_ct + φ(t))
+   ```
+   where `φ(t)` is the current phase (updated as described above).
 
-Modulation Process:
+---
 
-The first bit is modulated with a reference phase (usually 0°).
+## 📡 Demodulation Process
 
-Each subsequent bit’s phase depends on whether the bit is 0 (no phase change) or 1 (phase shift by 180°).
+At the receiver, demodulation is done by comparing the **phase** of the current received symbol with that of the previous symbol:
 
-Demodulation Process:
+- If the **phase is the same**, it corresponds to bit **0**.
+- If the **phase is different**, it corresponds to bit **1**.
 
-The receiver compares the phase of the current received bit with the previous bit.
+This differential detection avoids the need for an external phase reference.
 
-A phase difference of 180° is interpreted as bit 1.
+---
 
-No phase difference is interpreted as bit 0.
+## 📐 Mathematical Representation
 
-Advantages of DPSK:
+Let `b(n)` be the binary input bit stream. Then the differential encoded bit stream `d(n)` is:
 
-No need for a coherent carrier at the receiver.
+```
+d(n) = b(n) ⊕ d(n−1)
+```
 
-More robust against phase noise.
+Where:
+- `⊕` denotes XOR operation
+- `d(0)` is initialized as 0 or 1 (assumed reference)
 
-Simpler receiver design compared to coherent PSK systems.
+The DPSK modulated signal:
+```
+s(t) = A·cos(2πf_c·t + π·d(n))
+```
+
+Where:
+- `A` = amplitude
+- `f_c` = carrier frequency
+- `d(n)` = phase state (0 or 1, determines phase shift of 0° or 180°)
+
+---
+
+## 🧱 Block Diagram
+
+### 🔲 DPSK Modulator Block Diagram:
+
+![DPSK Modulator](./images/dpsk_modulator.png)
+
+> 📌 *Make sure to place your block diagram image in the `/images` folder of your GitHub repo.*
+
+---
+
+## ✅ Advantages of DPSK
+
+- No need for a carrier phase reference at the receiver (non-coherent).
+- Robust against phase jitter and noise.
+- Simpler and more cost-effective receiver design.
+- Suitable for high-speed data transmission.
+
+---
+
+## ⚠️ Limitations of DPSK
+
+- Slightly higher **bit error rate (BER)** compared to coherent schemes like BPSK under ideal conditions.
+- **Error propagation**: One bit error can cause the next bit to be misinterpreted due to dependency on previous phase.
+- Less efficient for higher-order modulation without advanced techniques.
+
+---
+
+## 📌 Applications of DPSK
+
+- **Wireless communication** (e.g., Bluetooth)
+- **RFID systems**
+- **Optical fiber communication**
+- **Satellite and space communications**
+- **Low-complexity embedded systems**
+
+---
+
+## 📘 Summary
+
+DPSK is a practical and efficient digital modulation technique particularly suited for systems where **simplicity, robustness, and low-power operation** are important. Its non-reliance on phase synchronization makes it widely used in real-world communication systems.
+
