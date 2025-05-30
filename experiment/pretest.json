@@ -32,6 +32,39 @@
       },
       "correctAnswer": "b",
       "explanation": "DPSK does not require a coherent carrier at the receiver since information is encoded in the difference between phases of successive symbols."
+    },
+    {
+      "question": "In DPSK, how is binary '1' typically represented?",
+      "answers": {
+        "a": "No phase change",
+        "b": "90° phase shift",
+        "c": "180° phase shift",
+        "d": "45° phase shift"
+      },
+      "correctAnswer": "c",
+      "explanation": "In standard DPSK, a binary '1' is represented by a 180° phase shift from the previous symbol, while '0' is represented by no phase change."
+    },
+    {
+      "question": "What is the main drawback of DPSK compared to PSK?",
+      "answers": {
+        "a": "Higher bandwidth requirement",
+        "b": "Higher bit error rate in noisy conditions",
+        "c": "More complex transmitter design",
+        "d": "Lower data rate capability"
+      },
+      "correctAnswer": "b",
+      "explanation": "DPSK typically has a higher BER than PSK because errors can propagate through the differential decoding process."
+    },
+    {
+      "question": "Which MATLAB function can be used for DPSK demodulation?",
+      "answers": {
+        "a": "dpskdemod()",
+        "b": "pskdemod()",
+        "c": "fskdemod()",
+        "d": "Both a and b"
+      },
+      "correctAnswer": "d",
+      "explanation": "MATLAB provides both dpskdemod() for direct DPSK demodulation and pskdemod() can be used with additional differential decoding steps."
     }
   ]
 }
