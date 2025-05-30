@@ -26,10 +26,10 @@ This means that each output symbol depends not only on the current input bit but
    - If bit = 0 → keep the phase the same.
    - If bit = 1 → invert the phase (add 180°).
 3. The phase-modulated signal is generated using:
-   ```
-   s(t) = A·cos(2πf_ct + φ(t))
-   ```
-   where `φ(t)` is the current phase (updated as described above).
+
+s(t) = A·cos(2πf_ct + φ(t))
+
+where φ(t) is the current phase (updated as described above).
 
 ---
 
@@ -46,37 +46,25 @@ This differential detection avoids the need for an external phase reference.
 
 ## 📐 Mathematical Representation
 
-Let `b(n)` be the binary input bit stream. Then the differential encoded bit stream `d(n)` is:
+Let b(n) be the binary input bit stream. Then the differential encoded bit stream d(n) is:
 
-```
 d(n) = b(n) ⊕ d(n−1)
-```
 
 Where:
-- `⊕` denotes XOR operation
-- `d(0)` is initialized as 0 or 1 (assumed reference)
+- ⊕ denotes XOR operation
+- d(0) is initialized as 0 or 1 (assumed reference)
 
 The DPSK modulated signal:
-```
+
 s(t) = A·cos(2πf_c·t + π·d(n))
-```
 
 Where:
-- `A` = amplitude
-- `f_c` = carrier frequency
-- `d(n)` = phase state (0 or 1, determines phase shift of 0° or 180°)
+- A = amplitude
+- f_c = carrier frequency
+- d(n) = phase state (0 or 1, determines phase shift of 0° or 180°)
 
 ---
 
-## 🧱 Block Diagram
-
-### 🔲 DPSK Modulator Block Diagram:
-
-![DPSK Modulator](./images/dpsk_modulator.png)
-
-> 📌 *Make sure to place your block diagram image in the `/images` folder of your GitHub repo.*
-
----
 
 ## ✅ Advantages of DPSK
 
@@ -108,4 +96,3 @@ Where:
 ## 📘 Summary
 
 DPSK is a practical and efficient digital modulation technique particularly suited for systems where **simplicity, robustness, and low-power operation** are important. Its non-reliance on phase synchronization makes it widely used in real-world communication systems.
-
