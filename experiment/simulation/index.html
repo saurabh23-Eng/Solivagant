@@ -1,13 +1,179 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<!-- Add CSS at the head of HTML file -->
-    <link rel="stylesheet" href="./css/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Differential Phase Shift Keying (DPSK) Simulation Lab</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-		<!-- Your code goes here-->
-
-	<!-- Add JS at the bottom of HTML file --> 
-        <script src="./js/main.js"></script>
+    <div class="container">
+        <h1>Differential Phase Shift Keying (DPSK) Simulation Lab</h1>
+        
+        <!-- Left Panel (smaller width) -->
+        <div class="left-panel">
+            <!-- Quick Guide Buttons -->
+            <div class="panel">
+                <div class="quick-guide-buttons">
+                    <button class="instructions-btn" id="showInstructionsBtn">Instructions</button>
+                    <button class="procedure-btn" id="showProcedureBtn">Procedure</button>
+                </div>
+                
+                <!-- Experiment Input -->
+                <h2>Experiment Input</h2>
+                <div class="form-group">
+                    <label for="bitPattern">Bit Pattern</label>
+                    <input type="text" id="bitPattern" value="1010101010" placeholder="e.g. 101010" />
+                </div>
+                <div class="form-group">
+                    <label for="carrierFreq">Carrier Frequency (Hz)</label>
+                    <input type="number" id="carrierFreq" value="1000" min="100" max="10000" />
+                </div>
+                <div class="form-group">
+                    <label for="bitDuration">Bit Duration (s)</label>
+                    <input type="number" id="bitDuration" value="0.01" step="0.001" min="0.001" />
+                </div>
+                <div class="form-group">
+                    <label for="noiseLevel">Noise Level (σ)</label>
+                    <input type="number" id="noiseLevel" value="0.1" step="0.01" min="0" />
+                </div>
+                <div class="form-group" style="display:flex;gap:10px;">
+                    <button id="simulateBtn" style="flex:1;">Run Simulation</button>
+                    <button id="resetBtn" class="reset-btn" style="flex:1;">Reset</button>
+                </div>
+                <button id="resultsBtn" class="results-btn" style="width:100%;">Show Results</button>
+            </div>
+        </div>
+        
+        <!-- Right Panel -->
+        <div class="right-panel">
+            <!-- Progress Bar -->
+            <div id="simulationProgress">
+                <div style="background:#e0e7ff;border-radius:8px;overflow:hidden;">
+                    <div id="progressBar"></div>
+                </div>
+                <div id="progressText">Simulation running...</div>
+            </div>
+            
+            <!-- Information Panels (initially hidden) -->
+            <div class="panel" id="instructionsPanel" style="display:none;">
+                <div class="instructions-panel">
+                    <h3>Instructions</h3>
+                    <ol>
+                        <li>Enter a binary bit pattern (e.g., 1010101010)</li>
+                        <li>Set the carrier frequency, bit duration, and noise level (σ)</li>
+                        <li>Click <b>Run Simulation</b> to view results</li>
+                        <li>Check original, encoded, and demodulated bits</li>
+                        <li>View BER and signal plots in the right panel</li>
+                        <li>Use <b>Reset</b> to clear all inputs and results</li>
+                    </ol>
+                </div>
+                <button id="hideInstructionsBtn" style="width:100%;margin-top:10px;">Close Instructions</button>
+            </div>
+            
+            <div class="panel" id="procedurePanel" style="display:none;">
+                <div class="instructions-panel">
+                    <h3>Procedure</h3>
+                    <ol>
+                        <li>Enter input parameters in the Experiment Input section</li>
+                        <li>Click Run Simulation to process the DPSK system</li>
+                        <li>Observe the block diagram flow in the right panel</li>
+                        <li>Analyze the results and signal plots</li>
+                        <li>Adjust parameters and repeat to observe changes</li>
+                        <li>Compare original and demodulated bits to check BER</li>
+                        <li>Experiment with different noise levels to see impact on signal quality</li>
+                    </ol>
+                </div>
+                <button id="hideProcedureBtn" style="width:100%;margin-top:10px;">Close Procedure</button>
+            </div>
+            
+            <!-- Block Diagram -->
+            <div id="blockDiagramPanel" class="panel">
+                <h2>DPSK System Block Diagram</h2>
+                <div class="block-diagram">
+                    <!-- Data Source -->
+                    <div class="block" style="background:#fbbf24;">
+                        Data<br>Source
+                    </div>
+                    <svg class="block-arrow"><polygon points="0,7 18,7 14,11 14,3"/></svg>
+                    <!-- Differential Encoder -->
+                    <div class="block" style="background:#34d399;">
+                        Diff.<br>Encoder
+                    </div>
+                    <svg class="block-arrow"><polygon points="0,7 18,7 14,11 14,3"/></svg>
+                    <!-- DPSK Modulator -->
+                    <div class="block" style="background:#6366f1;">
+                        DPSK<br>Mod.
+                    </div>
+                    <svg class="block-arrow"><polygon points="0,7 18,7 14,11 14,3"/></svg>
+                    <!-- AWGN Channel -->
+                    <div class="block" style="background:#f43f5e;">
+                        AWGN<br>Ch.
+                    </div>
+                    <svg class="block-arrow"><polygon points="0,7 18,7 14,11 14,3"/></svg>
+                    <!-- DPSK Demodulator -->
+                    <div class="block" style="background:#06b6d4;">
+                        DPSK<br>Demod.
+                    </div>
+                    <svg class="block-arrow"><polygon points="0,7 18,7 14,11 14,3"/></svg>
+                    <!-- Output -->
+                    <div class="block" style="background:#a21caf;">
+                        Output<br>Bits
+                    </div>
+                </div>
+                <div style="text-align:center;color:#374151;font-size:0.85em;margin-top:4px;">
+                    <b>Block Diagram Flow:</b> Data Source → Diff. Encoder → DPSK Mod. → AWGN Ch. → DPSK Demod. → Output Bits
+                </div>
+            </div>
+            
+            <!-- Signal Plots -->
+            <div class="panel">
+                <div class="tab-buttons">
+                    <button class="tab-button active" data-tab="modulated">Modulated</button>
+                    <button class="tab-button" data-tab="noisy">Noisy</button>
+                    <button class="tab-button" data-tab="product">Product</button>
+                    <button class="tab-button" data-tab="filtered">Filtered</button>
+                </div>
+                <div class="tab-content active" id="modulated">
+                    <div class="chart-container"><canvas id="modulatedChart"></canvas></div>
+                </div>
+                <div class="tab-content" id="noisy">
+                    <div class="chart-container"><canvas id="noisyChart"></canvas></div>
+                </div>
+                <div class="tab-content" id="product">
+                    <div class="chart-container"><canvas id="productChart"></canvas></div>
+                </div>
+                <div class="tab-content" id="filtered">
+                    <div class="chart-container"><canvas id="filteredChart"></canvas></div>
+                </div>
+            </div>
+            
+            <!-- Results Panel -->
+            <div class="panel" id="resultsPanel">
+                <h2>Results</h2>
+                <div class="results-panel">
+                    <div class="result-item">
+                        <label>Original Bits</label>
+                        <div class="bit-display" id="originalBits" style="background: #fef9c3; color: #92400e; border-left: 5px solid #fbbf24;"></div>
+                    </div>
+                    <div class="result-item">
+                        <label>Differentially Encoded</label>
+                        <div class="bit-display" id="encodedBits" style="background: #d1fae5; color: #065f46; border-left: 5px solid #34d399;"></div>
+                    </div>
+                    <div class="result-item">
+                        <label>Demodulated Bits</label>
+                        <div class="bit-display" id="demodulatedBits" style="background: #e0e7ff; color: #3730a3; border-left: 5px solid #6366f1;"></div>
+                    </div>
+                    <div class="result-item">
+                        <label>Bit Error Rate (BER)</label>
+                        <div class="bit-display" id="berResult" style="background: #fee2e2; color: #b91c1c; border-left: 5px solid #f43f5e; font-weight: bold; font-size: 1.15em;">0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
 </body>
 </html>
