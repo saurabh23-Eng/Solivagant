@@ -64,9 +64,12 @@ Where:
 - d(n) = phase state (0 or 1, determines phase shift of 0° or 180°)
 
 ---
+### 6. Block Diagram
+![download](https://github.com/user-attachments/assets/be16be25-0fbb-4049-a2e5-7db08e892c6f)
 
 
-## 6. Advantages of DPSK
+
+## 7. Advantages of DPSK
 
 - No need for a carrier phase reference at the receiver (non-coherent).
 - Robust against phase jitter and noise.
@@ -75,7 +78,7 @@ Where:
 
 ---
 
-## 7. Limitations of DPSK
+## 8. Limitations of DPSK
 
 - Slightly higher **bit error rate (BER)** compared to coherent schemes like BPSK under ideal conditions.
 - **Error propagation**: One bit error can cause the next bit to be misinterpreted due to dependency on previous phase.
@@ -83,7 +86,7 @@ Where:
 
 ---
 
-## 8. Applications of DPSK
+## 9. Applications of DPSK
 
 - **Wireless communication** (e.g., Bluetooth)
 - **RFID systems**
@@ -93,6 +96,6 @@ Where:
 
 ---
 
-## 9. Summary
+## 10. Summary
 
 DPSK is a practical and efficient digital modulation technique particularly suited for systems where **simplicity, robustness, and low-power operation** are important. Its non-reliance on phase synchronization makes it widely used in real-world communication systems.
