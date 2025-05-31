@@ -1,6 +1,6 @@
-# 🧪 Differential Phase Shift Keying (DPSK) – Theory
+#  Differential Phase Shift Keying (DPSK) – Theory
 
-## 📖 Introduction
+## 1. Introduction
 
 Differential Phase Shift Keying (DPSK) is a digital modulation technique where the information is encoded in the **difference between the phases of consecutive symbols** rather than the absolute phase of the signal. It is a type of **non-coherent Phase Shift Keying (PSK)**, meaning that the receiver does not require a reference carrier signal to decode the information, which simplifies hardware design.
 
@@ -8,7 +8,7 @@ In conventional PSK, the receiver must know the exact reference phase of the car
 
 ---
 
-## 🧠 Principle of Operation
+## 2. Principle of Operation
 
 In **binary DPSK (2-DPSK)**:
 
@@ -19,7 +19,7 @@ This means that each output symbol depends not only on the current input bit but
 
 ---
 
-## 🔧 Modulation Process
+## 3. Modulation Process
 
 1. An initial phase (e.g., 0°) is assumed.
 2. For every input bit:
@@ -33,7 +33,7 @@ where φ(t) is the current phase (updated as described above).
 
 ---
 
-## 📡 Demodulation Process
+## 4. Demodulation Process
 
 At the receiver, demodulation is done by comparing the **phase** of the current received symbol with that of the previous symbol:
 
@@ -44,7 +44,7 @@ This differential detection avoids the need for an external phase reference.
 
 ---
 
-## 📐 Mathematical Representation
+## 5. Mathematical Representation
 
 Let b(n) be the binary input bit stream. Then the differential encoded bit stream d(n) is:
 
@@ -66,7 +66,7 @@ Where:
 ---
 
 
-## ✅ Advantages of DPSK
+## 6. Advantages of DPSK
 
 - No need for a carrier phase reference at the receiver (non-coherent).
 - Robust against phase jitter and noise.
@@ -75,7 +75,7 @@ Where:
 
 ---
 
-## ⚠️ Limitations of DPSK
+## 7. Limitations of DPSK
 
 - Slightly higher **bit error rate (BER)** compared to coherent schemes like BPSK under ideal conditions.
 - **Error propagation**: One bit error can cause the next bit to be misinterpreted due to dependency on previous phase.
@@ -83,7 +83,7 @@ Where:
 
 ---
 
-## 📌 Applications of DPSK
+## 8. Applications of DPSK
 
 - **Wireless communication** (e.g., Bluetooth)
 - **RFID systems**
@@ -93,6 +93,6 @@ Where:
 
 ---
 
-## 📘 Summary
+## 9. Summary
 
 DPSK is a practical and efficient digital modulation technique particularly suited for systems where **simplicity, robustness, and low-power operation** are important. Its non-reliance on phase synchronization makes it widely used in real-world communication systems.
