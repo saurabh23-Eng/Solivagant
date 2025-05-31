@@ -1,4 +1,4 @@
-Step 1: Open Stimulator,
+ Step 1: Open Stimulator,
 Input data.
 
 Step 2: Define the Input Binary Data
@@ -6,12 +6,12 @@ Choose a sequence of binary bits that will be transmitted using DPSK.
 
 This data stream serves as the input for the simulation.
 
-Step 3: Apply Differential Encoding
+step 3: Apply Differential Encoding
 Convert the input binary data to differentially encoded data.
 
 Differential encoding ensures that the information is carried in the phase change between successive bits rather than in absolute phase.
 
-Step 4: Set Simulation Parameters
+ Step 4: Set Simulation Parameters
 Define simulation parameters such as:
 
 Carrier frequency
