@@ -1,1 +1,278 @@
-/* You CSS goes in here */
+/*body {
+    font-family: 'Inter', Arial, sans-serif;
+    background: linear-gradient(120deg, #f0f4f8 0%, #e0e7ff 100%);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 6px 32px rgba(80,80,180,0.10), 0 1.5px 6px #c7d2fe;
+    padding: 28px 18px 18px 18px;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 20px;
+}
+h1 {
+    color: #6366f1;
+    text-align: center;
+    margin-bottom: 18px;
+    font-size: 2.1em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    grid-column: 1 / -1;
+}
+.panel {
+    background: linear-gradient(90deg, #f3f4f6 60%, #e0e7ff 100%);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #e0e7ff;
+    padding: 18px 14px 10px 14px;
+    margin-bottom: 18px;
+}
+.panel h2 {
+    color: #2563eb;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+.form-group {
+    margin-bottom: 12px;
+}
+label {
+    display: block;
+    margin-bottom: 3px;
+    font-weight: 600;
+    color: #374151;
+    font-size: 1em;
+}
+input[type="number"], input[type="text"] {
+    width: 100%;
+    padding: 7px 10px;
+    border: 1.5px solid #c7d2fe;
+    border-radius: 6px;
+    font-size: 1em;
+    background: #f8fafc;
+    transition: border 0.2s;
+}
+input[type="number"]:focus, input[type="text"]:focus {
+    border: 1.5px solid #6366f1;
+    outline: none;
+}
+button {
+    background: linear-gradient(90deg, #6366f1 0%, #06b6d4 100%);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 8px #e0e7ff;
+    transition: background 0.2s, transform 0.1s;
+}
+button:disabled {
+    background: #cbd5e1;
+    color: #888;
+    cursor: not-allowed;
+}
+button:hover:not(:disabled) {
+    background: linear-gradient(90deg, #06b6d4 0%, #6366f1 100%);
+    transform: scale(1.04);
+}
+.bit-display {
+    font-family: 'Fira Mono', monospace;
+    font-size: 1em;
+    margin: 4px 0 8px 0;
+    padding: 7px 10px;
+    background: #f1f5f9;
+    border-radius: 6px;
+    color: #0f172a;
+    overflow-x: auto;
+}
+.chart-container {
+    background: #f8fafc;
+    border-radius: 10px;
+    box-shadow: 0 1.5px 6px #c7d2fe;
+    padding: 10px 6px 6px 6px;
+    margin-bottom: 10px;
+    height: 250px;
+}
+.tab-buttons {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+.tab-button {
+    padding: 7px 14px;
+    background: #e0e7ff;
+    border: none;
+    border-radius: 6px 6px 0 0;
+    font-weight: 600;
+    color: #6366f1;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.tab-button.active {
+    background: #6366f1;
+    color: #fff;
+}
+.tab-content {
+    display: none;
+}
+.tab-content.active {
+    display: block;
+}
+.instructions-panel {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 4px solid #6366f1;
+}
+.instructions-panel h3 {
+    color: #6366f1;
+    margin-top: 0;
+    font-size: 1.1em;
+}
+.instructions-panel ol, .instructions-panel ul {
+    padding-left: 20px;
+    font-size: 0.9em;
+    line-height: 1.6;
+}
+.instructions-panel li {
+    margin-bottom: 8px;
+}
+#blockDiagramPanel {
+    margin-bottom: 16px;
+    padding: 10px 6px 6px 6px;
+    background: linear-gradient(90deg, #e0e7ff 60%, #f3f4f6 100%);
+}
+#blockDiagramPanel h2 {
+    color: #6366f1;
+    font-size: 1em;
+    margin-bottom: 6px;
+    text-align: center;
+}
+.block-diagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.block {
+    background: #fbbf24;
+    color: #fff;
+    font-weight: 600;
+    padding: 7px 8px;
+    border-radius: 7px;
+    box-shadow: 0 1px 4px #fde68a;
+    min-width: 60px;
+    font-size: 0.95em;
+    text-align: center;
+}
+.block-arrow {
+    width: 18px;
+    height: 14px;
+    flex: none;
+}
+.block-arrow polygon {
+    fill: #6366f1;
+}
+.results-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+.result-item {
+    margin-bottom: 12px;
+}
+#simulationProgress {
+    display: none;
+    margin: 10px 0 18px 0;
+    grid-column: 1 / -1;
+}
+#progressBar {
+    height: 18px;
+    width: 0%;
+    background: linear-gradient(90deg, #6366f1 0%, #34d399 100%);
+    transition: width 0.3s;
+    border-radius: 8px;
+}
+#progressText {
+    text-align: center;
+    font-size: 0.98em;
+    color: #6366f1;
+    margin-top: 2px;
+}
+.reset-btn {
+    background: linear-gradient(90deg, #f43f5e 0%, #fbbf24 100%);
+}
+.instructions-btn {
+    background: linear-gradient(90deg, #8b5cf6 0%, #ec4899 100%);
+}
+.procedure-btn {
+    background: linear-gradient(90deg, #10b981 0%, #3b82f6 100%);
+}
+.results-btn {
+    background: linear-gradient(90deg, #f59e0b 0%, #d946ef 100%);
+}
+#resultsPanel {
+    display: none;
+}
+.info-tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 8px;
+}
+.info-tab-button {
+    padding: 7px 14px;
+    background: #e0e7ff;
+    border: none;
+    border-radius: 6px 6px 0 0;
+    font-weight: 600;
+    color: #6366f1;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.info-tab-button.active {
+    background: #6366f1;
+    color: #fff;
+}
+.info-tab-content {
+    display: none;
+}
+.info-tab-content.active {
+    display: block;
+}
+@media (max-width: 900px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+    .results-panel {
+        grid-template-columns: 1fr;
+    }
+}
+.blinking {
+    animation: blink 0.5s 2;
+}
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+.quick-guide-buttons {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+.quick-guide-buttons button {
+    flex: 1;
+    padding: 8px 12px;
+    font-size: 0.9em;
+} You CSS goes in here */
