@@ -1,4 +1,4 @@
-References:
+
 
 1. "Digital Communications" by Simon Haykin.
 
